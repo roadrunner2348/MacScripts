@@ -1,0 +1,39 @@
+#!/usr/bin/python
+
+# Created by Justin Wolf
+# March 23, 2015
+# Version 0.1
+
+import subprocess
+import os
+import sys
+
+if not os.geteuid() == 0:
+    sys.exit('Script must be run as root')
+
+#retrieve current ClientIdentifer from computer
+command = subprocess.Popen(["defaults", "read", "/Library/Preferences/ManagedInstalls", "ClientIdentifier"], stdout=subprocess.PIPE)
+manifest = command.communicate()[0]
+manifest = manifest.strip()
+
+#Check to see if already set to pilot manifest"
+if "pilot" in manifest:
+	sys.exit("Already in pilot catalog! Exiting...")
+
+#Check to see if manifest is blank
+if manifest == "":
+	sys.exit("No Manifest Currently Set! Exiting....")
+
+#Check to see if manifest is in "Tech"
+if manifest == "tech":
+	sys.exit("Tech manifest is already in the pilot catalog! Exiting...")
+
+if manifest == "KHS121-IORIO" or manifest == "KHS121-MUSIC" or manifest == "bolgermaclab":
+	sys.exit("No Pilot Manifest available for sub-manifests")
+
+print "Current Manifest is:" + manifest
+
+print "Setting to " + manifest + "-pilot"
+
+command = subprocess.call(["defaults", "write", "/Library/Preferences/ManagedInstalls", "ClientIdentifier", manifest + "-pilot"])
+
