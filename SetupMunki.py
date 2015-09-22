@@ -24,7 +24,7 @@ else:
 if args['manifest']:
    manifest = args['manifest']
 else:
-   sys.exit('Must provide a manifest name!')
+   manifest = 'testing'
    
 def downloadChunks(url):
     """Helper to download large files
