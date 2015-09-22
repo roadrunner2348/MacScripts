@@ -9,6 +9,7 @@ import math
 import time
 import argparse
 import re
+import sys
 
 parser = argparse.ArgumentParser(description='Installs and configures Munki on OS X')
 parser.add_argument('--server', help='The URL of the Munki Server. Defaults to http://munki.keansburg.k12.nj.us')
