@@ -1,7 +1,6 @@
 #!/bin/sh
 
-THE_LIST="1Password.munki
-AdobeAir.munki
+THE_LIST="AdobeAir.munki
 AdobeFlashPlayer.munki
 AdobeReaderDC.munki
 Atom.munki Audacity.munki
