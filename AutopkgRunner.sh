@@ -3,7 +3,8 @@
 THE_LIST="AdobeAir.munki
 AdobeFlashPlayer.munki
 AdobeReaderDC.munki
-Atom.munki Audacity.munki
+Atom.munki
+Audacity.munki
 AutoDMG.munki
 Caffeine.munki
 Dropbox.munki
@@ -19,7 +20,7 @@ MSOneNote2016.munki
 MSOutlook2016.munki
 MSPowerPoint2016.munki
 MSWord2016.munki
-munkitools.munki
+munkiadmin.munki
 OpenOffice.munki
 Opera.munki
 OracleJava8.munki
@@ -31,6 +32,7 @@ Skype.munki
 Spotify.munki
 TextWrangler.munki
 VLC.munki
-VMwareHorizonClient.munki"
+royaltsx.munki"
 
+autopkg repo-update all
 autopkg run -v $THE_LIST
